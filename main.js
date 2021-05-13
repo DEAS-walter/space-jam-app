@@ -69,9 +69,37 @@ allPlayerStatLines.shift();
 // Function to add the players to the bench to start the game
 function displayPlayerBench() {
     // Get the bench div in which the players will be shown.
+  // Get the bench div in which the players will be shown.
+  var bench = document.getElementById('playersOnBench');
 
+  // For each player, create a button 
+  for (let playerName of playerMap.keys()) {
+    // Create a button for each player
+    var newPlayer = document.createElement('button');
 
-    // For each player, create a button 
+    // Set the ID to the name of the player so we can get it later
+    newPlayer.id = playerName;
+
+    // Identify the style class, which will set the color scheme
+    newPlayer.className = 'playerButton';
+
+    // When the button is clicked, call the movePlayer function
+    newPlayer.onclick = movePlayer;
+
+    // Add the players image to the button
+    var playerImage = document.createElement('img');
+
+    // Set the source (or location) of the image
+    playerImage.src = 'images/'+playerName+'.png';
+
+    // Add the image to the button
+    newPlayer.appendChild(playerImage);
+
+    // Add the button to the bench
+    bench.appendChild(newPlayer);
+}  
+  
+  // For each player, create a button 
 
         // Create a button for each player
 
@@ -107,6 +135,38 @@ function displayPlayerBench() {
 // 1. Ensure the players currently on the court have the correct PER represented
 // 2. Update the stats for each player for the current quarter
 function displayPlayerCards() {
+        // Get the bench div in which the players will be shown.
+        var bench = document.getElementById('playersOnBench');
+
+        // For each player, create a button. 
+        for (let playerName of playerMap.keys()) {
+            // Create a button for each player
+            var newPlayer = document.createElement('button');
+    
+            // Set the ID to the name of the player so we can get it later
+            newPlayer.id = playerName;
+    
+            // Identify the style class, which will set the color scheme
+            newPlayer.className = 'playerButton';
+    
+            // When the button is clicked, call the movePlayer function
+            newPlayer.onclick = movePlayer;
+            
+            // Add the players image to the button
+            var playerImage = document.createElement('img');
+    
+            // Set the source (or location) of the image
+            playerImage.src = 'images/'+playerName+'.png';
+    
+            // Add the image to the button
+            newPlayer.appendChild(playerImage);
+    
+            // Add the button to the bench.
+            bench.appendChild(newPlayer);
+        }
+    
+        // Display cards for all players
+        displayPlayerCards();
     // Get the div in which the stats will be shown.
 
 
